@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DaycareList from "./pages/DaycareList/DaycareList";
+ import DaycareSearch from "./components/DaycareSearch/DaycareSearch";
+import Header from "./components/Header/Header";
+import AddDaycareItem from "./components/AddDaycareItem/AddDaycareItem";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
 
-export default App;
+      <BrowserRouter>
+
+<Header/>
+<DaycareSearch/>
+
+
+        <Routes>
+          <Route path="/" element={<DaycareList/>} />
+          <Route path="/daycare/add" element={< AddDaycareItem/>} />
+
+        </Routes>
+
+      </BrowserRouter>
+
+    );
+  }
+
+  export default App;
