@@ -1,6 +1,7 @@
 
 .daycare{
-
+    position: relative;
+bottom:18rem;
 
     &__title{
         margin-left: 2rem;
@@ -19,6 +20,9 @@
         margin: 0;
         padding-top: 0.5rem;
         padding-bottom: 0.25rem;
+        font-family: "Lato-Bold";
+        font-size: 1rem;
+        text-transform: uppercase;
 
     }
     &__headings-name{
@@ -59,6 +63,7 @@
             display: flex;
             flex-basis: 40%;
          margin-right: 3rem;
+         font-family: "Lato-Regular";
 
 
     }
@@ -168,4 +173,4 @@
                 }
 
 
-}
+            }

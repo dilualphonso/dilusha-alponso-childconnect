@@ -1,0 +1,41 @@
+.location{
+display: flex;
+flex-direction: column;
+width: 35%;
+justify-content: center;
+align-items: center;
+margin-top: 5rem;
+
+
+
+    &__search{
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+       //margin-left: 2rem;
+       height: 0.5rem;
+       width: 22rem;
+       border-radius: 50px;
+       padding-left: 0.5rem;
+      // transform: translate(50%, 50%);
+      border: 1px solid #bdc5d5;
+      margin-top: 0;
+
+    }
+
+    &__subtitle {
+       // width: 20rem;
+        margin-top: 0;
+        margin-left: 2rem;
+        font-size: 0.83rem;
+        font-family: "Lato-Regular";
+        margin-top: 0.5rem;
+    }
+
+    &__title{
+margin-left: 2rem;
+font-size: 1.5rem;
+margin-bottom: 0;
+font-family: "Lato-Bold";
+    }
+
+}

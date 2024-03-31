@@ -1,11 +1,24 @@
-import "../AddDaycareItem/AddDaycareItem.scss";
+
 import { useEffect, useState } from "react";
 import  {BASE_URL}  from "../../constant-variable";
 import axios from "axios";
+import "./AddDaycareItem.scss"
 
 function AddDaycareItem({}){
 
-    const [submitBtnText, setSubmitButtonText] = useState("");
+    // const [submitBtnText, setSubmitButtonText] = useState("");
+
+    // const [daycareNameError, setIsDaycarNameError] = useState(false);
+    // const [isStreetError, setIsStreetError] = useState(false);
+    // const [isCityError, setIsCityError] = useState(false);
+    // const [isCountryError, setIsCountryError] = useState(false);
+
+    // // Contact details error states
+    // const [isContactNameError, setIsContactNameError] = useState(false);
+    // const [isPositionError, setIsPositionError] = useState(false);
+    // const [phoneError, setPhoneError] = useState("");
+    // const [emailError, setEmailError] = useState("");
+
 
     const initialState = {
         daycareName: "",
@@ -71,7 +84,6 @@ function AddDaycareItem({}){
             contact_email: formInputs.email,
             years: formInputs.years,
             age_range: formInputs.agerange,
-            years: formInputs.years,
             infant_capacity: formInputs.infantCapacity,
             toddler_capacity: formInputs.toddlerCapacity,
             preschool_capacity: formInputs.preschoolCapacity
@@ -127,7 +139,7 @@ function AddDaycareItem({}){
             </fieldset>
             <fieldset className="daycare-form__contact-container" form="addDaycareForm" name="contactDetailsFields">
                 {/* Use h3 instead of legend in tablet as the styling of fieldset would required non-flex styling */}
-                <h3 className="daycare-form__sub-heading">Contact Details</h3>
+                <h3 className="daycare-form__sub-heading">Other Details</h3>
 
                 <label className="daycare-form__label" htmlFor="ownerName">Owner Name</label>
                 <input className="daycare-form__input" type="text" name="ownerName" id="ownerName" placeholder="Owner Name"    value={formInputs.ownerName}

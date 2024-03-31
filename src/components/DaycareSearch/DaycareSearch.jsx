@@ -1,31 +1,32 @@
 import React, { useState } from "react";
-import GoogleMapReact from 'google-map-react';
+import "./DaycareSearch.scss"
+import { BASE_URL } from "../../constant-variable";
 
 
+function DaycareSearch ({completedUrl, setCompletedUrl}){
 
-function DaycareSearch (){
+    const [search, setSearch] = useState('');
 
+
+    const handleChange = e => {
+        const inputValue = e.target.value;
+        setSearch(inputValue); // Update 'searchValue' with input value
+        console.log(inputValue)
+        setCompletedUrl(`${BASE_URL}/daycares?s=${inputValue}`);
+
+    }
 
     return (
-        <div>
-
-              <div>
-<input  name='searching' className='warehouses__search' type="text" placeholder="Search..." />
+        <section className="location">
+ <h1 className="location__title">Discover Quality Childcare Options in Your Area</h1>
+ <p className="location__subtitle">Every child is a different kind of flower, and all together, they make this world a beautiful garden</p>
+          <div>
+<input onChange={handleChange}
+                value={search}
+                name='searching' className='location__search' type="text" placeholder="Search..." />
                     </div>
 
-{/* <div style={ {height:"80vh"}}>
-                    <GoogleMapReact
-        bootstrapURLKeys={{ key:"AIzaSyAzEQgX_hi-_Qnv6aWWIQDAdcLYnFPqQSQ" }}
-        defaultCenter={{
-            lat: 10.99835602,
-            lng: 77.01502627
-        }}
-        defaultZoom={14}
-      >
-
-      </GoogleMapReact>
-      </div> */}
-        </div>
+        </section>
     )
 }
 export default DaycareSearch

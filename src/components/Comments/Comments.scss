@@ -1,0 +1,205 @@
+
+
+
+.comments {
+
+    &__title {
+
+        margin-left: 1rem;
+        margin-top: 0;
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+
+
+            margin-left: 2.5rem;
+            font-weight: 700;
+
+
+            padding-left: 3rem;
+
+    }
+
+    &__right-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-left: 0.5rem;
+        width: 100%;
+    }
+
+    &__image-container {
+        margin-right: 0;
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: row;
+        padding-left: 1rem;
+        justify-content: left;
+        align-items: flex-start;
+        margin-right: 1rem;
+        margin-top: 0;
+        padding-bottom: 1rem;
+
+
+
+           padding-left: 3.9rem
+
+    }
+
+    &__name {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        // color: $primary_silver;
+    }
+
+    &__name-area{
+        height: 7rem;
+        border-radius: 0.25rem;
+        padding-bottom: 1rem;
+        padding: 0.75rem;
+        border: 1px solid black;
+
+    }
+
+    &__name-textBox {
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+
+
+
+        &:focus {
+            border: 1px solid #000;
+
+            outline-width: 0;
+        }
+    }
+
+    &__avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        margin-top: 1.3rem;
+        margin-right: 0.5rem;
+
+            width: 2.8rem;
+            height: 2.8rem;
+            margin-top: 1.5rem;
+
+    }
+
+    &__subjecttxt {
+
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+        // color: $primary_silver;
+
+
+    }
+
+    &__textwrap {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        width: 100%;
+        padding-right: 0rem;
+
+        height: 60%;
+
+            width: 100%;
+            height: 5.25rem;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            margin-left: 0rem;
+
+    }
+
+    &__textarea {
+        height: 7rem;
+        border-radius: 0.25rem;
+        padding-bottom: 1rem;
+        padding: 0.75rem;
+
+
+        &:focus {
+            border: 1px solid Black;
+            outline-width: 0;
+        }
+
+
+            height: 2.5rem;
+            padding-bottom: 0;
+            margin-bottom: 1rem;
+
+    }
+
+    &__right-container {
+
+            flex-direction: column;
+
+
+    }
+
+    &__button {
+        margin-top: 1rem;
+
+        text-align: center;
+        margin-right: 1rem;
+        padding-right: 0rem;
+        padding-left: 0rem;
+        text-transform: uppercase;
+        border-radius: 0.25rem;
+        width: 100%;
+        // background-color: $primary-blue;
+        height: 2.5rem;
+        // color: $primary-white;
+        border: none;
+        // background-image: url("../../assets/icons/add_comment.svg");
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        background-size: 1.2rem;
+        border: 1px solid #000;
+
+        &:hover {
+            // background-color: $secondary-darkBlue;
+        }
+
+
+            font-weight: 600;
+            width: 13rem;
+            background-position: 15px 12px;
+            margin-top: 1rem;
+            margin-right: 0;
+
+    }
+
+    &__btn-container {
+        padding-top: 1rem;
+    }
+
+    &__line-bottom {
+        display: none;
+
+
+            display: block;
+            margin-left: 2rem;
+
+    }
+
+    &__radio{
+display: none;
+    }
+
+    &__yellowStar {
+        color: yellow;
+      }
+
+      &__greyStar {
+        color: grey;
+      }
+}

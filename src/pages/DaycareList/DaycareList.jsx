@@ -3,12 +3,18 @@ import { BASE_URL } from "../../constant-variable";
 import axios from "axios";
 import MapData from "../../components/MapData/MapData";
 import "./DaycareList.scss"
-import { Link } from 'react-router-dom';
+import DaycareSearch from "../../components/DaycareSearch/DaycareSearch";
+import { Link } from "react-router-dom";
+import ReviewList from "../ReviewList/ReviewList";
+import Comments from "../../components/Comments/Comments";
 
-function DaycareList() {
+function DaycareList({meanValue,comments}) {
 
   const [completedUrl, setCompletedUrl] = useState(`${BASE_URL}/daycares`);
   const [daycares, setDaycares] = useState([]);
+
+
+  console.log(comments);
 
   //display data
   useEffect(() => {
@@ -24,7 +30,7 @@ function DaycareList() {
         //     setnoResultMessage(""); // Clear the message if there are results
         //   }
 
-        console.log(response.data);
+        // console.log(response.data);
         setDaycares(response.data);
 
       }
@@ -35,9 +41,26 @@ function DaycareList() {
     fetchdaycares();
   }, [completedUrl]);
 
+  const calculateMeanRating = (daycareId) => {
+    const filteredComments = comments.filter((comment) => comment.daycare_id === daycareId);
+    if (filteredComments.length === 0) {
+      return 0; // No comments for this daycare
+    }
+    const ratings = filteredComments.map((comment) => comment.rating);
+    const sum = ratings.reduce((acc, rating) => acc + rating, 0);
+    const mean = sum / ratings.length;
+    return mean;
+  };
+
+
   return (
     <div>
-      <MapData daycares={daycares} />
+      <section className="home">
+
+         <DaycareSearch completedUrl={completedUrl} setCompletedUrl={setCompletedUrl}/>
+
+      <MapData  className="home__map"daycares={daycares} />
+      </section>
 
       <section className="daycare">
 
@@ -79,7 +102,7 @@ function DaycareList() {
 
 
 
-                          <div className="daycare__name">{daycare.childcare_name}</div>
+                        <Link to={`/daycares/${daycare.id}`}> <div className="daycare__name">{daycare.childcare_name}</div></Link>
 
 
 
@@ -101,8 +124,12 @@ function DaycareList() {
                           <div className='daycare__contact-info'>
                             <div className="daycare__contact-phone" >{daycare.contact_phone}</div>
                             <div className="daycare__contact-email">{daycare.contact_email}</div>
-                          </div>
 
+                          </div >
+
+                          <div className="daycare__ratings">
+
+                      </div>
 
                       </div>
 
@@ -115,6 +142,7 @@ function DaycareList() {
 
 
               ))
+
             }
 
 </div>
@@ -122,6 +150,7 @@ function DaycareList() {
             {/* <img className="daycare__sort" src={sortIcon} alt="sorting icon" /> */}
 
         </div>
+
       </section>
     </div>
 

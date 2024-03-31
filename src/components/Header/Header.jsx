@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./Header.scss";
-import "../../App";
+
 
 const Header = () => {
   const navigate = useNavigate();

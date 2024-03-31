@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GoogleMapReact from 'google-map-react';
 import { Icon } from "@iconify/react";
+import "./MapData.scss"
 
 import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
 
@@ -16,8 +17,9 @@ const MapData = ({ daycares }) => {
     setSelectedLocation(null);
   };
         return (
-            <div style={{ height: "80vh", width: "100%" }}>
-               <APIProvider apiKey={"AIzaSyAzEQgX_hi-_Qnv6aWWIQDAdcLYnFPqQSQ"} libraries={["marker"]}>
+          <section className="map">
+            <div className="map__google">
+               <APIProvider apiKey={""} libraries={["marker"]}>
       <Map
         mapId={"bf51a910020fa25a"}
         defaultZoom={12}
@@ -80,6 +82,8 @@ const MapData = ({ daycares }) => {
       </Map>
     </APIProvider>
             </div>
+
+            </section>
         );
 
 
