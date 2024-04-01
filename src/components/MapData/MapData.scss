@@ -1,12 +1,49 @@
 .map{
 display: flex;
     &__google{
-        width: 70%;
-        height: 60vh;
+        width: 78%;
+        height: 70vh;
         position: relative;
-        left: 40%;
-      top: -17.5rem;
+        left: 10%;
+      // top: -17.5rem;
 
 
+
+    }
+
+    &__childcare{
+
+      position: absolute;
+      background-color : #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      left: -50%;
+      top: -120%;
+      transform: translate(-50%, -50%);
+
+
+    }
+
+    &__advancemaker{
+
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        background-color: #1dbe80;
+        border: 2px solid #0e6443 ;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    &__close{
+      position: relative;
+      bottom:7rem;
+background-color: transparent;
+left: 5rem;
+font-size: 1.5rem;
+color: #000;
     }
 }

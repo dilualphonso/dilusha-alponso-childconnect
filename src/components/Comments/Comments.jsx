@@ -106,7 +106,7 @@ function Comments({comments,setComments}) {
 
     return (
         <section className="comments">
-            <h3 className="comments__title"> Comments</h3>
+            <h3 className="comments__title">Share Your Experience</h3>
 
             <form name="reviewform" className="comments__form" onSubmit={submitComment}>
                 <div className="comments__fields">
@@ -137,11 +137,11 @@ function Comments({comments,setComments}) {
                             <label className="comments__rating" htmlFor="rate">
                              Your Ratings
                             </label>
-                            <div>
+                            <div className="comments__star">
       {[...Array(5)].map((star, index) => {
         const currentRate = index+1 ;
         return (
-          <label key={index}>
+          <label className="comments__star-label"key={index}>
             <input className="comments__radio"
               type="radio"
               name="starRate"
@@ -150,7 +150,7 @@ function Comments({comments,setComments}) {
 
             />
               <FaStar
-              size={50}
+
               className={currentRate <= rateColor ? 'comments__yellowStar' : 'comments__greyStar'}
               onClick={() => handleRate(currentRate)}
               onMouseEnter={() => setRateColor(currentRate)}
@@ -195,8 +195,13 @@ function Comments({comments,setComments}) {
             <div className="review__wrapper" key={comment.id}>
               <div className="review__placeholder"></div>
               <div className="review__right-container">
+                <div>
                 <div className="review__text-container">
                   <h3 className="review__name">{comment.reviewer_name}</h3>
+                  <time className="review__date">
+                    {changeTime(comment.created_at)}
+                  </time>
+                  </div>
                   <p className="review__rate">
                   {[...Array(5)].map((star, index) => {
                       return (
@@ -208,9 +213,7 @@ function Comments({comments,setComments}) {
                       );
                     })}
                   </p>
-                  <time className="review__date">
-                    {changeTime(comment.created_at)}
-                  </time>
+
                 </div>
                 <div className="review__comment-container">
                   <p className="review__sentence">{comment.comment}</p>

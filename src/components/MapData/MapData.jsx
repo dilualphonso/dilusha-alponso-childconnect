@@ -10,7 +10,10 @@ const MapData = ({ daycares }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const handleMarkerClick = (childCare) => {
-    setSelectedLocation(childCare);
+    setSelectedLocation({
+      childCare: childCare,
+     isOpen: true,
+    });
   };
 
   const handleInfoClose = () => {
@@ -19,7 +22,7 @@ const MapData = ({ daycares }) => {
         return (
           <section className="map">
             <div className="map__google">
-               <APIProvider apiKey={""} libraries={["marker"]}>
+               <APIProvider apiKey={"AIzaSyAzEQgX_hi-_Qnv6aWWIQDAdcLYnFPqQSQ"}  libraries={["marker"]}>
       <Map
         mapId={"bf51a910020fa25a"}
         defaultZoom={12}
@@ -36,7 +39,7 @@ const MapData = ({ daycares }) => {
             const floatLat = parseFloat(childCare.latitude);
             const floatLng = parseFloat(childCare.longitude);
             return (
-              <AdvancedMarker
+              <AdvancedMarker className="map__advancemaker"
                 key={key}
                 position={{ lat: floatLat, lng: floatLng }}
                 title={childCare.childcare_name}
@@ -44,7 +47,7 @@ const MapData = ({ daycares }) => {
               >
 
 
-                <div
+                {/* <div
                   style={{
                     width: 16,
                     height: 16,
@@ -55,26 +58,18 @@ const MapData = ({ daycares }) => {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  </div>
-                 {selectedLocation === childCare && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        background: "#fff",
-                        padding: "10px",
-                        borderRadius: "5px",
-                        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-                        zIndex: 1000,
-                        left: "-50%",
-                        top: "-120%",
-                        transform: "translate(-50%, -50%)",
+                  </div> */}
+                 {selectedLocation &&
+                      selectedLocation.childCare === childCare &&
+                      selectedLocation.isOpen && (
+                    <div className="map__childcare"
 
-                      }}
                     >
                       <h3>{childCare.childcare_name}</h3>
                       <p>{childCare.address}</p>
                       <button onClick={handleInfoClose}>Close</button>
                     </div>
+
                  )}
               </AdvancedMarker>
             );

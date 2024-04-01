@@ -51,16 +51,15 @@ const Header = () => {
           </li>
           <li
             className={`header__link-button ${
-              activeLink.includes("/signup") ? "active" : ""
+              activeLink.includes("/profile") ? "active" : ""
             }`}
           >
             <Link
               to="/signup"
               className="header__link"
-              onClick={() => handleNavigation("/signup")}
+              onClick={() => handleNavigation("/profile")}
             >
-              Signup
-            </Link>
+              Profile            </Link>
           </li>
         </ul>
       </nav>

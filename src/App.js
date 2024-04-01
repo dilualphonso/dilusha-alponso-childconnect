@@ -8,6 +8,8 @@ import Signup from "./pages/Signup/Signup";
 import { useEffect, useState } from "react";
 import Comments from "./components/Comments/Comments";
 import ReviewList from "./pages/ReviewList/ReviewList";
+import HomePage from "./pages/HomePage/HomePage";
+
 function App() {
 
   const [comments, setComments] = useState([]);
@@ -40,7 +42,8 @@ function App() {
 
 
         <Routes>
-          <Route path="/" element={<DaycareList comments={comments} setComments={setComments} meanValue={meanValue}/>} />
+        <Route path="/" element={<HomePage/>} />
+          <Route path="/daycares" element={<DaycareList comments={comments} setComments={setComments} meanValue={meanValue}/>} />
           <Route path="/daycares/add" element={< AddDaycareItem/>} />
           <Route path="/daycares/:id" element={<DaycareDetailPage comments={comments} setComments={setComments} meanValue={meanValue}/>} />
           <Route path="/signup" element={<Signup />} />

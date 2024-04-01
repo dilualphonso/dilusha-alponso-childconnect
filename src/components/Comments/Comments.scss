@@ -1,22 +1,25 @@
-
+@use "../../styles/typography" as *;
+@use "../../styles/color" as *;
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
 
 
 .comments {
 
     &__title {
 
-        margin-left: 1rem;
+        margin-left: 2rem;
         margin-top: 0;
         padding-top: 1.5rem;
         padding-bottom: 1rem;
         margin-bottom: 0;
+        @include desktop-font-h2;
 
 
-            margin-left: 2.5rem;
             font-weight: 700;
 
 
-            padding-left: 3rem;
+
 
     }
 
@@ -35,7 +38,8 @@
     &__fields {
         display: flex;
         flex-direction: row;
-        padding-left: 1rem;
+        //padding-left: 1rem;
+        margin-left: 2rem;
         justify-content: left;
         align-items: flex-start;
         margin-right: 1rem;
@@ -44,7 +48,7 @@
 
 
 
-           padding-left: 3.9rem
+           //padding-left: 3.9rem
 
     }
 
@@ -59,18 +63,18 @@
     }
 
     &__name-area{
-        height: 7rem;
+
         border-radius: 0.25rem;
         padding-bottom: 1rem;
-        padding: 0.75rem;
-        border: 1px solid black;
-
+        //padding: 0.75rem;
+        border: 1px solid $secondary-cloud;
+width: 70%;
     }
 
     &__name-textBox {
         text-transform: uppercase;
-        padding-bottom: 0.5rem;
-
+        //padding-bottom: 0.5rem;
+        @include itemLabel();
 
 
         &:focus {
@@ -87,8 +91,6 @@
         margin-top: 1.3rem;
         margin-right: 0.5rem;
 
-            width: 2.8rem;
-            height: 2.8rem;
             margin-top: 1.5rem;
 
     }
@@ -98,6 +100,7 @@
         text-transform: uppercase;
         padding-bottom: 0.5rem;
         // color: $primary_silver;
+        @include itemLabel();
 
 
     }
@@ -105,36 +108,36 @@
     &__textwrap {
         display: flex;
         flex-direction: column;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         width: 100%;
         padding-right: 0rem;
 
-        height: 60%;
 
-            width: 100%;
-            height: 5.25rem;
+
+
+
             margin-right: 1rem;
-            margin-top: 0.25rem;
-            margin-left: 0rem;
+
 
     }
 
     &__textarea {
         height: 7rem;
         border-radius: 0.25rem;
-        padding-bottom: 1rem;
-        padding: 0.75rem;
-
+        padding-bottom: 0.5rem;
+        padding: 1rem;
+width: 70%;
+        border: 1px solid $secondary-cloud;
 
         &:focus {
-            border: 1px solid Black;
+            border: 1px solid #000;
             outline-width: 0;
         }
 
 
-            height: 2.5rem;
+
             padding-bottom: 0;
-            margin-bottom: 1rem;
+
 
     }
 
@@ -150,14 +153,13 @@
 
         text-align: center;
         margin-right: 1rem;
-        padding-right: 0rem;
-        padding-left: 0rem;
+       padding:4px;
         text-transform: uppercase;
         border-radius: 0.25rem;
         width: 100%;
-        // background-color: $primary-blue;
+        background-color: $sup-green;
         height: 2.5rem;
-        // color: $primary-white;
+        color: $white;
         border: none;
         // background-image: url("../../assets/icons/add_comment.svg");
         background-position: 10px 10px;
@@ -166,7 +168,7 @@
         border: 1px solid #000;
 
         &:hover {
-            // background-color: $secondary-darkBlue;
+             background-color: #D4AF37;
         }
 
 
@@ -202,4 +204,112 @@ display: none;
       &__greyStar {
         color: grey;
       }
+
+      &__starwrap {
+        margin-top: 0.5rem;
+      }
+      &__star{
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: row;
+
+      }
+      &__rating{
+        @include itemLabel();
+        text-transform: uppercase;
+      }
+
+      &__star-label{
+
+        font-size: 40px;
+        margin-left: 2px;
+      }
+}
+
+
+.review {
+
+&__sentence{
+    @include desktop-font-large;
+    margin-top: 0;
+}
+
+    &__date {
+
+        justify-content: right;
+        margin-top: 0.25rem;
+
+color: $secondary-slate;
+margin-right: 1rem;
+
+    }
+
+    &__name {
+        margin-top: 0;
+        margin-bottom: 0;
+       // margin-left: 1rem;
+       // @include mobile-font-h3;
+
+            font-weight: 700;
+            @include desktop-font-h4;
+
+    }
+
+    &__line {
+        margin: auto;
+        //color: $secondory-mercury;
+        width: 100%;
+        stroke-width: 1px;
+        border-top: 1px solid $secondary-cloud;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__placeholder {
+        height: 2.8rem;
+        width: 0rem;
+        border-radius: 50%;
+        padding-right: 3rem;
+     //   background-color: $secondory-mercury;
+        background-size: cover;
+
+
+            height: 3rem;
+            width: 0rem;
+            box-sizing: content-box;
+
+    }
+
+    &__text-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__right-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__delete-button {
+        background: none;
+        border: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    &__image {
+        width: 20px;
+        height: 20px;
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
 }

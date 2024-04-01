@@ -1,10 +1,18 @@
+@use "../../styles/typography" as *;
+@use "../../styles/color" as *;
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
 
 .daycare{
-    position: relative;
-bottom:18rem;
+    //position: relative;
+//bottom:18rem;
 
     &__title{
         margin-left: 2rem;
+        margin-top: 2rem;
+
+        @include desktop-font-h2;
+
 
     }
 
@@ -16,13 +24,18 @@ bottom:18rem;
 
 
         width: 100%;
-        height: 2.5rem;
+       // height: 2.5rem;
         margin: 0;
         padding-top: 0.5rem;
         padding-bottom: 0.25rem;
         font-family: "Lato-Bold";
         font-size: 1rem;
         text-transform: uppercase;
+        @include itemLabel;
+        background-color: $bg-light;
+        height: 2rem;
+        padding-top: 0;
+        padding-bottom: 0.25rem;
 
     }
     &__headings-name{
@@ -47,12 +60,18 @@ bottom:18rem;
         padding-top: 3rem;
     //align-items: center;
        // padding-bottom: 3rem;
+     border-bottom: 1px solid $secondary-cloud;
     }
 
     &__test{
         display: flex;
         justify-content: space-between;
         width: 100%;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f0f4fd;
+          }
 
     }
     &__container{
@@ -74,7 +93,7 @@ bottom:18rem;
             flex-direction: column;
             padding: 0;
             margin: 0;
-            flex-basis: 21%;
+            flex-basis: 22%;
             width: 100%;
             margin-left: 2rem;
             text-transform: uppercase;
@@ -92,6 +111,16 @@ bottom:18rem;
             flex-basis: 13.5%;
             width: 100%;
         }
+        &__headings-rating{
+
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+            flex-basis: 17%;
+            width: 100%;
+
+        }
 
 
     &__headings-contact-info {
@@ -100,7 +129,7 @@ bottom:18rem;
             flex-direction: row;
             padding: 0;
             margin: 0;
-            flex-basis: 30%;
+            flex-basis: 26%;
             width: 100%;
         }
 
@@ -111,7 +140,7 @@ bottom:18rem;
                 margin-right: 1rem;
                 padding: 0;
                 margin: 0;
-                flex-basis: 20%;
+                flex-basis: 23%;
                 width: 100%;
             }
 
@@ -137,7 +166,7 @@ bottom:18rem;
                margin-right: 1rem;
                padding: 0;
                margin: 0;
-               flex-basis: 60%;
+               flex-basis: 55%;
                width: 100%;
                 }
 
@@ -150,7 +179,7 @@ bottom:18rem;
                     padding-top: 0.25rem;
 
                         width: 100%;
-                        flex-basis: 20%;
+                        flex-basis: 22%;
 
                 }
                 &__address{
@@ -166,11 +195,26 @@ bottom:18rem;
                     align-items: flex-start;
 
                         width: 100%;
-                        flex-basis: 12%;
+                        flex-basis: 13%;
                         padding-top: 1rem;
-                        margin-left: 2rem;
+                       margin-left: 1rem;
 
+                }
+
+                &__rating {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    width: 100%;
+                    padding-top: 0.25rem;
+
+                        width: 100%;
+                        flex-basis: 10%
                 }
 
 
             }
+
+
+
