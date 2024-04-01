@@ -1,9 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./Header.scss";
-
 
 const Header = () => {
   const navigate = useNavigate();
@@ -27,18 +25,16 @@ const Header = () => {
             className="header__logo-link"
             onClick={() => handleNavigation("/")}
           >
-            <p className="header__logo-image">ChildcareConnect
-
-
-            </p>
+            <p className="header__logo-image">ChildcareConnect</p>
           </Link>
         </div>
         <ul className="header__button-container">
           <li
-            className={`header__link-button ${location.pathname === "/" || activeLink.includes("/daycares")
+            className={`header__link-button ${
+              location.pathname === "/" || activeLink.includes("/daycares")
                 ? "active"
                 : ""
-              }`}
+            }`}
           >
             <Link
               to="/daycares"
@@ -49,16 +45,17 @@ const Header = () => {
             </Link>
           </li>
           <li
-            className={`header__link-button ${activeLink.includes("/profile") ? "active" : ""
-              }`}
+            className={`header__link-button ${
+              activeLink.includes("/profile") ? "active" : ""
+            }`}
           >
             <Link
               to="/profile"
               className="header__link"
               onClick={() => handleNavigation("/profile")}
             >
-              Profile            </Link>
-
+              Profile{" "}
+            </Link>
           </li>
         </ul>
       </nav>

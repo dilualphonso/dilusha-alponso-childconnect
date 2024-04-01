@@ -1,0 +1,16 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/color" as *;
+@use "../../styles/global" as *;
+
+
+.search{
+
+
+    &__message{
+        text-align: center;
+        @include desktop-font-h2;
+
+    }
+
+}

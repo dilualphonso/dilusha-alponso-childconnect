@@ -1,12 +1,13 @@
 import { BASE_URL } from "../../constant-variable";
-import { useParams, Link } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./DaycareDetailPage.scss";
 import Comments from "../../components/Comments/Comments";
 import ReviewList from "../ReviewList/ReviewList";
 
-function DaycareDetailPage({ setComments, comments }) {
+function DaycareDetailPage() {
+  const [comments, setComments] = useState([]);
   const { id } = useParams();
   const [daycareData, setDaycareData] = useState({}); // Initialize as object
 
@@ -39,7 +40,7 @@ function DaycareDetailPage({ setComments, comments }) {
   }, [id]);
 
   return (
-    <section  className="childcare">
+    <section className="childcare">
       <div className="childcare__container">
         <div key={daycareData.id} className="childcare__wrapper">
           <div key={daycareData.id} className="childcare__left-container">
@@ -55,9 +56,7 @@ function DaycareDetailPage({ setComments, comments }) {
             <div className="childcare__contact-phone">
               {daycareData.contact_phone}
             </div>
-            <div>
-              {<ReviewList rating={meanRating} />}
-            </div>
+            <div>{<ReviewList rating={meanRating} />}</div>
           </div>
           <div className="childcare__right-container">
             <div className="childcare__label-container">

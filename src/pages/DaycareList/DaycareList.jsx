@@ -6,17 +6,24 @@ import "./DaycareList.scss"
 import DaycareSearch from "../../components/DaycareSearch/DaycareSearch";
 import { Link } from "react-router-dom";
 import ReviewList from '../ReviewList/ReviewList';
+import Sorting from "../../components/Sorting/Sorting";
+import SearchMessage from '../../components/SearchMessage/SearchMessage';
 
-function DaycareList({ comments, setComments }) {
+function DaycareList() {
   const [completedUrl, setCompletedUrl] = useState(`${BASE_URL}/daycares`);
   const [daycares, setDaycares] = useState([]);
+  const [noResultMessage, setnoResultMessage] = useState("")
 
   // Fetch data when completedUrl changes
   useEffect(() => {
     const fetchDaycares = async () => {
       try {
         const response = await axios.get(completedUrl);
-        console.log(response.data);
+        if (response.data.message=== "No result") {
+          setnoResultMessage(`No search result`);
+        } else {
+          setnoResultMessage(""); // Clear the message if there are results
+        }
         setDaycares(response.data);
       } catch (error) {
         console.error("Error fetching daycare:", error);
@@ -26,10 +33,19 @@ function DaycareList({ comments, setComments }) {
     fetchDaycares();
   }, [completedUrl]);
 
+
+  const handleAscClick = (sortingType) => {
+    setCompletedUrl(`${BASE_URL}/daycares?sort_by=${sortingType}&order_by=asc`);
+};
+
+const handleDescClick = (sortingType) => {
+    setCompletedUrl(`${BASE_URL}/daycares?sort_by=${sortingType}&order_by=desc`);
+};
+
   return (
     <div>
       <section className="home">
-        <DaycareSearch completedUrl={completedUrl} setCompletedUrl={setCompletedUrl} />
+        <  DaycareSearch completedUrl={completedUrl} setCompletedUrl={setCompletedUrl} />
         <MapData className="home__map" daycares={daycares} />
       </section>
 
@@ -52,23 +68,27 @@ function DaycareList({ comments, setComments }) {
             </div>
             <div className="daycare__headings-rating">
               <h4 className="daycare__rating-heading">Rating</h4>
+              <Sorting onAscClick={() => handleAscClick('meanRating')} onDescClick={() => handleDescClick('meanRating')} />
             </div>
           </div>
 
           <div className="daycare__bottom-container">
-            {daycares.length > 0 &&
+            {daycares.length>0 &&
               daycares.map((daycare) => (
                 <div className="daycare__test" key={daycare.daycare_id}>
-                  <div className='daycare__wrapper'>
+                  <div key={daycare.daycare_id} className='daycare__wrapper'>
                     <div className="daycare__container">
-                      <div key={daycare.id} className="daycare__name-container">
+                      <div className="daycare__name-container">
                         <Link to={`/daycares/${daycare.daycare_id}`}>
                           <div className="daycare__name">{daycare.childcare_name}</div>
                         </Link>
                       </div>
                       <div className="daycare__address-container">
-                        <p className="daycare__address">{daycare.address}, {daycare.city}, {daycare.country}</p>
+                        <p className="daycare__address">{daycare.address}, {daycare.city},{daycare.region}   {daycare.postalcode}</p>
+
+
                       </div>
+
                     </div>
                     <div className="daycare__contact-name-container">
                       <div className="daycare__contact-name">{daycare.age_range}</div>
@@ -80,13 +100,14 @@ function DaycareList({ comments, setComments }) {
                       </div>
                     </div >
                     <div className="daycare__rating">
-                    <p>  {<ReviewList rating={daycare.meanRating} />}</p>
+                    <div>  {<ReviewList rating={daycare.meanRating} />}</div>
                     </div>
                   </div>
                 </div>
               ))}
           </div>
         </div>
+        {noResultMessage && <SearchMessage setnoResultMessage={setnoResultMessage} noResultMessage={noResultMessage} />}
       </section>
     </div>
   );
