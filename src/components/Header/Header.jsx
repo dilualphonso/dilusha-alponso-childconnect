@@ -27,7 +27,7 @@ const Header = () => {
             className="header__logo-link"
             onClick={() => handleNavigation("/")}
           >
-            <p   className="header__logo-image">ChildcareConnect
+            <p className="header__logo-image">ChildcareConnect
 
 
             </p>
@@ -35,11 +35,10 @@ const Header = () => {
         </div>
         <ul className="header__button-container">
           <li
-            className={`header__link-button ${
-              location.pathname === "/" || activeLink.includes("/daycares")
+            className={`header__link-button ${location.pathname === "/" || activeLink.includes("/daycares")
                 ? "active"
                 : ""
-            }`}
+              }`}
           >
             <Link
               to="/daycares"
@@ -50,16 +49,16 @@ const Header = () => {
             </Link>
           </li>
           <li
-            className={`header__link-button ${
-              activeLink.includes("/profile") ? "active" : ""
-            }`}
+            className={`header__link-button ${activeLink.includes("/profile") ? "active" : ""
+              }`}
           >
             <Link
-              to="/signup"
+              to="/profile"
               className="header__link"
               onClick={() => handleNavigation("/profile")}
             >
               Profile            </Link>
+
           </li>
         </ul>
       </nav>

@@ -44,9 +44,9 @@ function App() {
         <Routes>
         <Route path="/" element={<HomePage/>} />
           <Route path="/daycares" element={<DaycareList comments={comments} setComments={setComments} meanValue={meanValue}/>} />
-          <Route path="/daycares/add" element={< AddDaycareItem/>} />
+          <Route path="/profile/add" element={< AddDaycareItem/>} />
           <Route path="/daycares/:id" element={<DaycareDetailPage comments={comments} setComments={setComments} meanValue={meanValue}/>} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Signup />} />
 
         </Routes>
 

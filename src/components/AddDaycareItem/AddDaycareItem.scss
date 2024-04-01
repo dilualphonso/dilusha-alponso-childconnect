@@ -1,6 +1,6 @@
 @use "../../styles/typography" as *;
 @use "../../styles/color" as *;
-
+@use "../../styles/mixins" as *;
 .daycare-form{
 
     &__details-container{
@@ -44,6 +44,8 @@
     &__label{
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
+        @include  itemLabel ;
+        text-transform: uppercase;
     }
     &__input{
         height: 0.5rem;
@@ -61,5 +63,9 @@ color: $white;
 font-family: "Lato-Regular";
 font-size: 0.83rem;
 
+    }
+
+    &__label-error{
+color:red;
     }
 }

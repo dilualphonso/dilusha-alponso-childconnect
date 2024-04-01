@@ -18,7 +18,7 @@ const Signup = (props) => {
       password: pass
     }).then((response) => {
       console.log(response.data); // Log the response data
-   navigate('/daycares/add');
+   navigate('/profile/add');
 
     }).catch((error) => {
       console.error(error); // Log the error
