@@ -18,7 +18,7 @@ const MapData = ({ daycares }) => {
     <section className="map">
       <div className="map__google">
         <APIProvider
-          apiKey={"AIzaSyAzEQgX_hi-_Qnv6aWWIQDAdcLYnFPqQSQ"}
+          apiKey={"API_KEY"}
           libraries={["marker"]}
         >
           <Map

@@ -48,7 +48,7 @@ function Comments({ comments, setComments }) {
       }
     };
     fetchComments();
-  }, [id]);
+  }, [id, setComments]);
 
   function handleChageComment(event) {
     setReviews(event.target.value);
