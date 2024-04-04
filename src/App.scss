@@ -1,3 +1,10 @@
-a {
-  text-decoration: none;
+
+@use "./styles/color"as *;
+
+
+a:link,
+a,
+a:visited {
+    text-decoration: none;
+    color:$primary-black;
 }

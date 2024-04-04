@@ -5,6 +5,7 @@ import AddDaycareItem from "./components/AddDaycareItem/AddDaycareItem";
 import DaycareDetailPage from "./pages/DaycareDetailPage/DaycareDetailPage";
 import Signup from "./pages/Signup/Signup";
 import HomePage from "./pages/HomePage/HomePage";
+import ContactPage from "./components/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/profile/add" element={<AddDaycareItem />} />
         <Route path="/daycares/:id" element={<DaycareDetailPage />} />
         <Route path="/profile" element={<Signup />} />
+        <Route path="/daycares/:id/:email" element={<ContactPage/>} />
       </Routes>
     </BrowserRouter>
   );

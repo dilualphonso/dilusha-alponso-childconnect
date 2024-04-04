@@ -96,7 +96,7 @@ const handleDescClick = (sortingType) => {
                     <div className="daycare__contact-info-container">
                       <div className='daycare__contact-info'>
                         <div className="daycare__contact-phone">{daycare.contact_phone}</div>
-                        <div className="daycare__contact-email">{daycare.contact_email}</div>
+           <Link to={`/daycares/${daycare.daycare_id}/${daycare.contact_email}`}>          <div className="daycare__contact-email">{daycare.contact_email}</div></Link>
                       </div>
                     </div >
                     <div className="daycare__rating">

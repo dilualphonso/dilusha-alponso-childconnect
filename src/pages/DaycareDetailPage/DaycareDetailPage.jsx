@@ -30,7 +30,6 @@ function DaycareDetailPage() {
     const getDaycare = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/daycares/${id}`);
-        console.log(response.data);
         setDaycareData(response.data);
       } catch (error) {
         console.error(error.message);
