@@ -3,7 +3,15 @@
 @use "../../styles/global"as *;
 @use "../../styles/mixins"as *;
 
+a:link,
+a,
+a:visited {
+    text-decoration: none;
+//color: $primary-black;
+}
+
 .daycare {
+
 
     &__title {
         margin-left: 2rem;
@@ -113,6 +121,12 @@
         width: 100%;
         margin-left: 2rem;
         cursor: pointer;
+
+
+        &:link, :visited{
+
+            color: $primary-black;
+        }
     }
 
     &__address-container {
@@ -135,6 +149,11 @@
         padding-bottom: 0.5rem;
         flex-basis: 22%;
         cursor: pointer;
+
+        &:link, :visited{
+
+            color: $primary-black;
+        }
     }
 
     &__address {
@@ -152,6 +171,7 @@
         flex-basis: 13%;
         padding-top: 1rem;
         margin-left: 1rem;
+
     }
 
     &__rating {

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+
 import "./../../App.scss"
 
 
@@ -13,7 +13,7 @@ function ContactPage() {
   const [fullName, setFullName] = useState("");
   const [contactemail, setContactEmail] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+
   const baseUrl = "http://localhost:8080";
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function ContactPage() {
 
     const sendEmail = async (dataSend) => {
       try {
-        const response = await axios.post(`${baseUrl}/email/sendEmail`, dataSend, {
+       await axios.post(`${baseUrl}/email/sendEmail`, dataSend, {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -69,7 +69,7 @@ function ContactPage() {
       <h3 className="comments__title">Contact Us</h3>
 
       <form name="reviewform" className="comments__form" onSubmit={submitComment}>
-        <div className="comments__fields">
+        <div key= {id} className="comments__fields">
           <div className="comments__right-container">
             <div className="comments__textwrap">
               <label className="comments__name-textBox" htmlFor="fullname">
