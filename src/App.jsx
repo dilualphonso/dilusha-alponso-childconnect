@@ -6,6 +6,7 @@ import DaycareDetailPage from "./pages/DaycareDetailPage/DaycareDetailPage";
 import Signup from "./pages/Signup/Signup";
 import HomePage from "./pages/HomePage/HomePage";
 import ContactPage from "./components/ContactPage/ContactPage";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/daycares" element={<DaycareList />} />
         <Route path="/profile/add" element={<AddDaycareItem />} />
         <Route path="/daycares/:id" element={<DaycareDetailPage />} />
