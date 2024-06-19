@@ -7,11 +7,16 @@ import { useNavigate } from "react-router-dom";
 function Login () {
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
-
+function handleSubmit(event){
+  event.preventDefault();
+  axios.post('http://localhost:8080/api/users/login', {email,password})
+  .then(res => console.log(res))
+  .catch(err=>console.log(err));
+}
   return (
     <section className="register">
       <div className="register__container">
-        <form className="register__form">
+        <form className="register__form" onSubmit={handleSubmit}>
           <h2 className="register__title">Login</h2>
 
 
@@ -26,7 +31,7 @@ const [password, setPassword] = useState('')
           />
           <label htmlFor="password">Password</label>
           <input
-            value={word}
+            value={password}
              onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="********"
